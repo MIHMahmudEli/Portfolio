@@ -61,6 +61,7 @@ const repositories = [
     stargazers_count: 0,
     forks_count: 0,
     localIcon: "/icons/StudyhubBDBot.svg",
+    localPreview: "/previews/StudyHubBot.png",
   },
   {
     name: "RoutinePro",
@@ -183,29 +184,45 @@ export default function Projects() {
                       aria-label={`Project: ${repo.name}`}
                     >
                       {repo.localPreview ? (
-                        <div className="project-preview-window">
-                          <img 
-                            src={repo.localPreview} 
-                            alt={`${repo.name} preview`}
-                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                          />
-                          <div className="preview-overlay" />
-                        </div>
-                      ) : repo.homepage ? (
-                        <div className="project-preview-window">
-                          <div className="iframe-scaler">
-                            <iframe 
-                              src={repo.homepage} 
-                              title={`${repo.name} live preview`}
-                              loading="lazy"
-                              scrolling="no"
-                              sandbox="allow-scripts allow-same-origin"
-                              tabIndex={-1}
-                              aria-hidden="true"
+                        <a 
+                          href={repo.homepage || repo.html_url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="project-preview-link"
+                          aria-label={`View ${repo.name} live project`}
+                        >
+                          <div className="project-preview-window">
+                            <img 
+                              src={repo.localPreview} 
+                              alt={`${repo.name} preview`}
+                              style={{ width: "100%", height: "100%", objectFit: "cover" }}
                             />
+                            <div className="preview-overlay" />
                           </div>
-                          <div className="preview-overlay" />
-                        </div>
+                        </a>
+                      ) : repo.homepage ? (
+                        <a 
+                          href={repo.homepage} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="project-preview-link"
+                          aria-label={`View ${repo.name} live project`}
+                        >
+                          <div className="project-preview-window">
+                            <div className="iframe-scaler">
+                              <iframe 
+                                src={repo.homepage} 
+                                title={`${repo.name} live preview`}
+                                loading="lazy"
+                                scrolling="no"
+                                sandbox="allow-scripts allow-same-origin"
+                                tabIndex={-1}
+                                aria-hidden="true"
+                              />
+                            </div>
+                            <div className="preview-overlay" />
+                          </div>
+                        </a>
                       ) : null}
                       
                       <div className="project-card-top">
