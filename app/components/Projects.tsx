@@ -40,123 +40,113 @@ const repositories = [
   {
     name: "StudyHub",
     description:
-      "Web-based platform where students share and manage academic notes & slides. Features roles for Students, Moderators, and Admins with gamification.",
+      "Web-based platform where students share and manage academic notes & slides. Features gamification and roles for Students, Moderators, and Admins.",
     html_url: "https://github.com/MIHMahmudEli/StudyHub",
+    homepage: "https://studyhubb.great-site.net",
     language: "PHP",
     stargazers_count: 1,
     forks_count: 0,
-    fork: false,
   },
   {
     name: "RoutinePro",
     description:
-      "High-performance web app for generating conflict-free university class routines with smart modes, gap optimization, and dynamic XLSX/JSON data sync—featuring a Glassmorphism UI.",
+      "High-performance web app for generating conflict-free university class routines with smart modes, gap optimization, and dynamic XLSX/JSON data sync.",
     html_url: "https://github.com/MIHMahmudEli/RoutinePro",
+    homepage: "https://routine-pro-fawn.vercel.app",
     language: "HTML",
     stargazers_count: 0,
     forks_count: 0,
-    fork: false,
-  },
-  {
-    name: "GlutProject",
-    description:
-      "A 2D animated smart city built with OpenGL and C++. Features dynamic weather, moving vehicles, day-night cycle, rain, lightning, and interactive controls.",
-    html_url: "https://github.com/MIHMahmudEli/GlutProject",
-    language: "C++",
-    stargazers_count: 1,
-    forks_count: 0,
-    fork: false,
   },
   {
     name: "TrueNetMeter",
     description:
-      "Premium, high-accuracy PHP speed test app with a vibrant circular speedometer. Uses professional multi-stream algorithms to deliver genuine internet performance metrics.",
+      "Premium, high-accuracy PHP speed test app with a vibrant circular speedometer. Uses professional multi-stream algorithms to deliver genuine metrics.",
     html_url: "https://github.com/MIHMahmudEli/TrueNetMeter",
+    homepage: "https://truenetmeter.infinityfreeapp.com",
     language: "JavaScript",
     stargazers_count: 0,
     forks_count: 0,
-    fork: false,
-  },
-  {
-    name: "AgroBridge",
-    description:
-      "AGROBRIDGE – A Digital Platform for Agricultural Empowerment, connecting farmers with resources and markets.",
-    html_url: "https://github.com/MIHMahmudEli/AgroBridge",
-    language: "C#",
-    stargazers_count: 0,
-    forks_count: 0,
-    fork: false,
-  },
-  {
-    name: "PasswordVault",
-    description:
-      "Secure password manager application built with Python. Safely stores and retrieves credentials.",
-    html_url: "https://github.com/MIHMahmudEli/PasswordVault",
-    language: "Python",
-    stargazers_count: 0,
-    forks_count: 0,
-    fork: false,
   },
   {
     name: "GitAnalytics",
     description:
       "GitHub profile analytics dashboard that visualizes repository stats, language distribution, and developer insights.",
     html_url: "https://github.com/MIHMahmudEli/GitAnalytics",
+    homepage: "https://git-analytics-sigma.vercel.app/",
     language: "CSS",
     stargazers_count: 0,
     forks_count: 0,
-    fork: false,
   },
   {
     name: "tic-tac-toe-game",
     description:
       "Tic Tac Toe web game with friend & computer modes, multiple themes, animations, and responsive design. Built with HTML, CSS & JavaScript.",
     html_url: "https://github.com/MIHMahmudEli/tic-tac-toe-game",
+    homepage: "https://mihmahmudeli.github.io/tic-tac-toe-game/",
     language: "JavaScript",
     stargazers_count: 0,
     forks_count: 0,
-    fork: false,
   },
   {
     name: "Counting-Game",
     description:
       "A number game where you and the computer take turns counting from 0 to 21. Each player can add 1–3 per turn; whoever says 21 loses. Computer plays smart!",
     html_url: "https://github.com/MIHMahmudEli/Counting-Game",
+    homepage: "https://mihmahmudeli.github.io/Counting-Game/",
     language: "JavaScript",
     stargazers_count: 0,
     forks_count: 1,
-    fork: false,
   },
   {
     name: "NexGen.OS",
     description:
       "A browser-based OS simulation with a modern UI concept, exploring desktop-like experiences on the web.",
     html_url: "https://github.com/MIHMahmudEli/NexGen.OS",
+    homepage: "https://nex-gen-os.vercel.app",
     language: "JavaScript",
     stargazers_count: 0,
     forks_count: 0,
-    fork: false,
   },
   {
     name: "Research-to-JSON",
     description:
       "Python tool to extract and convert research paper data into structured JSON format for further analysis.",
     html_url: "https://github.com/MIHMahmudEli/Research-to-JSON",
+    homepage: "https://mihmahmudeli-research-to-json-app-r2bfaf.streamlit.app/",
     language: "Python",
     stargazers_count: 0,
     forks_count: 0,
-    fork: false,
   },
   {
-    name: "Data-Science-Project",
+    name: "Portfolio",
     description:
-      "Data science explorations and analysis using R, featuring statistical modelling and visualizations.",
-    html_url: "https://github.com/MIHMahmudEli/Data-Science-Project",
-    language: "R",
+      "Personal portfolio website showcasing projects, skills, and experience with a modern dynamic design.",
+    html_url: "https://github.com/MIHMahmudEli/Portfolio",
+    homepage: "https://portfolio-three-snowy-49.vercel.app",
+    language: "TypeScript",
     stargazers_count: 0,
     forks_count: 0,
-    fork: false,
   },
+  {
+    name: "Quick-Dodge",
+    description:
+      "A fast-paced reflex evasion game built for the web.",
+    html_url: "https://github.com/MIHMahmudEli/Quick-Dodge",
+    homepage: "https://mihmahmudeli.github.io/Quick-Dodge/",
+    language: "JavaScript",
+    stargazers_count: 0,
+    forks_count: 0,
+  },
+  {
+    name: "Number-Grid-Game",
+    description:
+      "A logic-based number grid puzzle game.",
+    html_url: "https://github.com/MIHMahmudEli/Number-Grid-Game",
+    homepage: "https://mihmahmudeli.github.io/Number-Grid-Game/",
+    language: "CSS",
+    stargazers_count: 0,
+    forks_count: 0,
+  }
 ];
 
 export default function Projects() {
@@ -184,45 +174,71 @@ export default function Projects() {
                 aria-label={`Project: ${repo.name}`}
               >
                 <div className="project-card-top">
-                  <span className="project-icon" aria-hidden="true">{icon}</span>
-                  <a
-                    href={repo.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link-icon"
-                    aria-label={`Open ${repo.name} on GitHub`}
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-                      <polyline points="15 3 21 3 21 9" />
-                      <line x1="10" y1="14" x2="21" y2="3" />
-                    </svg>
-                  </a>
+                  <div className="project-icon-wrapper">
+                    <span aria-hidden="true">{icon}</span>
+                  </div>
+                  <div className="project-links">
+                    {repo.html_url && (
+                      <a
+                        href={repo.html_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link-btn"
+                        title="GitHub Repository"
+                        aria-label={`Open ${repo.name} on GitHub`}
+                      >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                      </a>
+                    )}
+                    {repo.homepage && (
+                      <a
+                        href={repo.homepage}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link-btn"
+                        title="Live Demo"
+                        aria-label={`Open ${repo.name} live project`}
+                      >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                          <polyline points="15 3 21 3 21 9" />
+                          <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 <a
-                  href={repo.html_url}
+                  href={repo.homepage || repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-name"
+                  title="View Live Project"
                 >
                   {repo.name}
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
                 </a>
 
                 <p className="project-desc">{repo.description}</p>
 
                 <div className="project-footer">
                   {repo.language && (
-                    <div className="project-lang">
+                    <div className="project-lang-pill">
                       <span
                         className="lang-dot"
-                        style={{ background: langColor }}
+                        style={{ color: langColor, background: langColor }}
                         aria-hidden="true"
                       />
                       {repo.language}
                     </div>
                   )}
-                  <div style={{ display: "flex", gap: "12px" }}>
+                  <div className="project-stars-group">
                     {repo.stargazers_count > 0 && (
                       <div className="project-stars" aria-label={`${repo.stargazers_count} stars`}>
                         ★ {repo.stargazers_count}
