@@ -227,11 +227,31 @@ body {
   font-weight: 600;
 }
 .hero-desc {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--text-muted);
-  max-width: 480px;
-  margin-bottom: 32px;
+  max-width: 600px;
   line-height: 1.7;
+}
+
+/* Glassmorphism description */
+.hero-glass-card {
+  background: rgba(16, 20, 36, 0.4);
+  border: 1px solid rgba(79, 142, 247, 0.15);
+  padding: 28px 32px;
+  border-radius: 20px;
+  margin-bottom: 32px;
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 0 30px rgba(79, 142, 247, 0.05), 0 10px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.hero-glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent-blue), var(--accent-cyan));
 }
 .hero-actions {
   display: flex;
@@ -279,87 +299,124 @@ body {
   transform: translateY(-2px);
 }
 
-/* ─── Avatar ring ────────────────────────────────────────── */
-.avatar-wrapper {
-  position: relative;
-  flex-shrink: 0;
-}
-.avatar-ring {
-  position: relative;
-  width: 220px; height: 220px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, var(--accent-blue), var(--accent-violet), var(--accent-cyan), var(--accent-blue));
-  padding: 3px;
-  animation: spin-ring 8s linear infinite;
-}
-@keyframes spin-ring {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-.avatar-inner {
-  width: 100%; height: 100%;
-  border-radius: 50%;
-  overflow: hidden;
-  background: var(--bg-dark);
-  position: relative;
-}
-.avatar-inner img {
-  border-radius: 50%;
-  object-fit: cover;
-}
-.avatar-badge {
-  position: absolute;
-  bottom: 8px; right: 8px;
-  background: var(--bg-dark);
-  border: 2px solid var(--border);
-  border-radius: 50%;
-  width: 44px; height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  box-shadow: var(--shadow-card);
-  animation: none;
-}
-
-/* ─── Stats strip ────────────────────────────────────────── */
-.stats-strip {
+.stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-  margin-top: 48px;
+  margin-top: 40px;
 }
-.stat-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 20px;
-  text-align: center;
-  transition: all 0.25s ease;
+.stat-glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
-.stat-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-hover);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-glow);
+.stat-glass-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.stat-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(79, 142, 247, 0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.stat-glass-card:hover .stat-glow {
+  opacity: 1;
 }
 .stat-value {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 800;
-  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 6px;
   background: var(--grad-hero);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 .stat-label {
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
   font-weight: 500;
-  margin-top: 4px;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Avatar ring Morph ──────────────────────────────────── */
+.avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 440px;
+  height: 440px;
+}
+.avatar-morph {
+  width: 340px;
+  height: 340px;
+  position: relative;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  overflow: hidden;
+  animation: morph 8s ease-in-out infinite;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 0 4px rgba(255,255,255,0.1);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+.avatar-morph:hover {
+  transform: scale(1.03) rotate(-3deg);
+  box-shadow: 0 30px 60px rgba(79,142,247,0.3), inset 0 0 0 4px rgba(79,142,247,0.4);
+}
+.avatar-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, transparent 50%);
+  pointer-events: none;
+}
+@keyframes morph {
+  0%, 100% { border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%; }
+  34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+  67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+}
+
+.floating-badge {
+  position: absolute;
+  background: rgba(16, 20, 36, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 99px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  z-index: 3;
+  animation: float-badge 6s ease-in-out infinite;
+}
+.floating-badge span {
+  background: var(--grad-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.badge-1 { top: 7%; right: 0%; animation-delay: 0s; }
+.badge-2 { bottom: 10%; left: -5%; animation-delay: -2s; }
+.badge-3 { bottom: 25%; right: -5%; animation-delay: -4s; }
+
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
 
 /* ─── Section ────────────────────────────────────────────── */
