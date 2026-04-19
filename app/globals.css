@@ -618,6 +618,26 @@ body {
 .project-card:hover::after {
   opacity: 1;
 }
+.projects-category-group {
+  display: flex;
+  flex-direction: column;
+}
+.category-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+.category-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent);
+}
 .project-card-top {
   display: flex;
   align-items: flex-start;

@@ -39,6 +39,7 @@ const REPO_ICONS: Record<string, string> = {
 const repositories = [
   {
     name: "StudyHub",
+    category: "web",
     description:
       "Web-based platform where students share and manage academic notes & slides. Features gamification and roles for Students, Moderators, and Admins.",
     html_url: "https://github.com/MIHMahmudEli/StudyHub",
@@ -46,9 +47,11 @@ const repositories = [
     language: "PHP",
     stargazers_count: 1,
     forks_count: 0,
+    localIcon: "/icons/studyhub.svg",
   },
   {
     name: "RoutinePro",
+    category: "web",
     description:
       "High-performance web app for generating conflict-free university class routines with smart modes, gap optimization, and dynamic XLSX/JSON data sync.",
     html_url: "https://github.com/MIHMahmudEli/RoutinePro",
@@ -56,9 +59,11 @@ const repositories = [
     language: "HTML",
     stargazers_count: 0,
     forks_count: 0,
+    localIcon: "/icons/RoutinePro.svg",
   },
   {
     name: "TrueNetMeter",
+    category: "web",
     description:
       "Premium, high-accuracy PHP speed test app with a vibrant circular speedometer. Uses professional multi-stream algorithms to deliver genuine metrics.",
     html_url: "https://github.com/MIHMahmudEli/TrueNetMeter",
@@ -66,9 +71,11 @@ const repositories = [
     language: "JavaScript",
     stargazers_count: 0,
     forks_count: 0,
+    localIcon: "/icons/TrueNetMeter.svg",
   },
   {
     name: "GitAnalytics",
+    category: "web",
     description:
       "GitHub profile analytics dashboard that visualizes repository stats, language distribution, and developer insights.",
     html_url: "https://github.com/MIHMahmudEli/GitAnalytics",
@@ -76,9 +83,11 @@ const repositories = [
     language: "CSS",
     stargazers_count: 0,
     forks_count: 0,
+    localIcon: "/icons/GitAnalytics.svg",
   },
   {
     name: "tic-tac-toe-game",
+    category: "games",
     description:
       "Tic Tac Toe web game with friend & computer modes, multiple themes, animations, and responsive design. Built with HTML, CSS & JavaScript.",
     html_url: "https://github.com/MIHMahmudEli/tic-tac-toe-game",
@@ -86,9 +95,11 @@ const repositories = [
     language: "JavaScript",
     stargazers_count: 0,
     forks_count: 0,
+    localIcon: "/icons/tic-tac-toe-game.svg",
   },
   {
     name: "Counting-Game",
+    category: "games",
     description:
       "A number game where you and the computer take turns counting from 0 to 21. Each player can add 1–3 per turn; whoever says 21 loses. Computer plays smart!",
     html_url: "https://github.com/MIHMahmudEli/Counting-Game",
@@ -96,39 +107,11 @@ const repositories = [
     language: "JavaScript",
     stargazers_count: 0,
     forks_count: 1,
-  },
-  {
-    name: "NexGen.OS",
-    description:
-      "A browser-based OS simulation with a modern UI concept, exploring desktop-like experiences on the web.",
-    html_url: "https://github.com/MIHMahmudEli/NexGen.OS",
-    homepage: "https://nex-gen-os.vercel.app",
-    language: "JavaScript",
-    stargazers_count: 0,
-    forks_count: 0,
-  },
-  {
-    name: "Research-to-JSON",
-    description:
-      "Python tool to extract and convert research paper data into structured JSON format for further analysis.",
-    html_url: "https://github.com/MIHMahmudEli/Research-to-JSON",
-    homepage: "https://mihmahmudeli-research-to-json-app-r2bfaf.streamlit.app/",
-    language: "Python",
-    stargazers_count: 0,
-    forks_count: 0,
-  },
-  {
-    name: "Portfolio",
-    description:
-      "Personal portfolio website showcasing projects, skills, and experience with a modern dynamic design.",
-    html_url: "https://github.com/MIHMahmudEli/Portfolio",
-    homepage: "https://portfolio-three-snowy-49.vercel.app",
-    language: "TypeScript",
-    stargazers_count: 0,
-    forks_count: 0,
+    localIcon: "/icons/Counting-Game.svg",
   },
   {
     name: "Quick-Dodge",
+    category: "games",
     description:
       "A fast-paced reflex evasion game built for the web.",
     html_url: "https://github.com/MIHMahmudEli/Quick-Dodge",
@@ -136,9 +119,11 @@ const repositories = [
     language: "JavaScript",
     stargazers_count: 0,
     forks_count: 0,
+    localIcon: "/icons/Quick-Dodge.svg",
   },
   {
     name: "Number-Grid-Game",
+    category: "games",
     description:
       "A logic-based number grid puzzle game.",
     html_url: "https://github.com/MIHMahmudEli/Number-Grid-Game",
@@ -146,6 +131,7 @@ const repositories = [
     language: "CSS",
     stargazers_count: 0,
     forks_count: 0,
+    localIcon: "/icons/Number-Grid-Game.svg",
   }
 ];
 
@@ -163,97 +149,117 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="projects-grid">
-          {repositories.map((repo, i) => {
-            const icon = REPO_ICONS[repo.name] ?? "📁";
-            const langColor = LANG_COLORS[repo.language ?? ""] ?? "#888";
-            return (
-              <article
-                key={repo.name}
-                className={`project-card animate-in delay-${Math.min(i % 5 + 1, 5)}`}
-                aria-label={`Project: ${repo.name}`}
-              >
-                <div className="project-card-top">
-                  <div className="project-icon-wrapper">
-                    <span aria-hidden="true">{icon}</span>
-                  </div>
-                  <div className="project-links">
-                    {repo.html_url && (
+        <div className="projects-category-group">
+          {[{ title: "Web Applications & Tools", filter: "web", icon: "💻" }, { title: "Interactive Games", filter: "games", icon: "🕹️" }].map((categoryGroup, idx) => (
+            <div key={categoryGroup.filter} style={{ marginBottom: idx === 0 ? "64px" : "0" }}>
+              <h3 className="category-title animate-in">
+                <span aria-hidden="true" style={{ fontSize: "1.2em", background: "var(--grad-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{categoryGroup.icon}</span> 
+                {categoryGroup.title}
+              </h3>
+              
+              <div className="projects-grid">
+                {repositories.filter(r => r.category === categoryGroup.filter).map((repo, i) => {
+                  const fallbackIcon = REPO_ICONS[repo.name] ?? "📁";
+                  const langColor = LANG_COLORS[repo.language ?? ""] ?? "#888";
+
+                  return (
+                    <article
+                      key={repo.name}
+                      className={`project-card animate-in delay-${Math.min(i % 5 + 1, 5)}`}
+                      aria-label={`Project: ${repo.name}`}
+                    >
+                      <div className="project-card-top">
+                        <div className="project-icon-wrapper">
+                          {repo.localIcon ? (
+                            <img 
+                              src={repo.localIcon} 
+                              alt={`${repo.name} icon`} 
+                              style={{ width: "32px", height: "32px", borderRadius: "6px", objectFit: "contain" }}
+                            />
+                          ) : (
+                            <span aria-hidden="true">{fallbackIcon}</span>
+                          )}
+                        </div>
+                        <div className="project-links">
+                          {repo.html_url && (
+                            <a
+                              href={repo.html_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="project-link-btn"
+                              title="GitHub Repository"
+                              aria-label={`Open ${repo.name} on GitHub`}
+                            >
+                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                              </svg>
+                            </a>
+                          )}
+                          {repo.homepage && (
+                            <a
+                              href={repo.homepage}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="project-link-btn"
+                              title="Live Demo"
+                              aria-label={`Open ${repo.name} live project`}
+                            >
+                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                              </svg>
+                            </a>
+                          )}
+                        </div>
+                      </div>
+
                       <a
-                        href={repo.html_url}
+                        href={repo.homepage || repo.html_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="project-link-btn"
-                        title="GitHub Repository"
-                        aria-label={`Open ${repo.name} on GitHub`}
+                        className="project-name"
+                        title="View Live Project"
                       >
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        {repo.name}
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
                       </a>
-                    )}
-                    {repo.homepage && (
-                      <a
-                        href={repo.homepage}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link-btn"
-                        title="Live Demo"
-                        aria-label={`Open ${repo.name} live project`}
-                      >
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-                          <polyline points="15 3 21 3 21 9" />
-                          <line x1="10" y1="14" x2="21" y2="3" />
-                        </svg>
-                      </a>
-                    )}
-                  </div>
-                </div>
 
-                <a
-                  href={repo.homepage || repo.html_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-name"
-                  title="View Live Project"
-                >
-                  {repo.name}
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
+                      <p className="project-desc">{repo.description}</p>
 
-                <p className="project-desc">{repo.description}</p>
-
-                <div className="project-footer">
-                  {repo.language && (
-                    <div className="project-lang-pill">
-                      <span
-                        className="lang-dot"
-                        style={{ color: langColor, background: langColor }}
-                        aria-hidden="true"
-                      />
-                      {repo.language}
-                    </div>
-                  )}
-                  <div className="project-stars-group">
-                    {repo.stargazers_count > 0 && (
-                      <div className="project-stars" aria-label={`${repo.stargazers_count} stars`}>
-                        ★ {repo.stargazers_count}
+                      <div className="project-footer">
+                        {repo.language && (
+                          <div className="project-lang-pill">
+                            <span
+                              className="lang-dot"
+                              style={{ color: langColor, background: langColor }}
+                              aria-hidden="true"
+                            />
+                            {repo.language}
+                          </div>
+                        )}
+                        <div className="project-stars-group">
+                          {repo.stargazers_count > 0 && (
+                            <div className="project-stars" aria-label={`${repo.stargazers_count} stars`}>
+                              ★ {repo.stargazers_count}
+                            </div>
+                          )}
+                          {repo.forks_count > 0 && (
+                            <div className="project-stars" style={{ color: "var(--accent-emerald)" }} aria-label={`${repo.forks_count} forks`}>
+                              ⑂ {repo.forks_count}
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    )}
-                    {repo.forks_count > 0 && (
-                      <div className="project-stars" style={{ color: "var(--accent-emerald)" }} aria-label={`${repo.forks_count} forks`}>
-                        ⑂ {repo.forks_count}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </article>
-            );
-          })}
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </div>
 
         <div style={{ textAlign: "center", marginTop: "40px" }} className="animate-in">
