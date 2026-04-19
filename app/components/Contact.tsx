@@ -79,114 +79,83 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Spotlight CTA */}
-        <div
-          className="glass-card animate-in delay-1"
-          style={{
-            padding: "40px",
-            marginBottom: "28px",
-            textAlign: "center",
-            background:
-              "linear-gradient(135deg, rgba(79,142,247,0.08) 0%, rgba(167,139,250,0.08) 100%)",
-            borderColor: "rgba(79,142,247,0.2)",
-          }}
-        >
-          <div className="floating-paper-plane" aria-hidden="true" style={{ marginBottom: "20px" }}>
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="url(#gradient-plane)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <defs>
-                <linearGradient id="gradient-plane" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#4f8ef7" />
-                  <stop offset="100%" stopColor="#a78bfa" />
-                </linearGradient>
-              </defs>
-              <line x1="22" y1="2" x2="11" y2="13"/>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-            </svg>
-          </div>
-          <h3
-            style={{
-              fontSize: "1.3rem",
-              fontWeight: 800,
-              color: "var(--text-primary)",
-              marginBottom: "8px",
-              letterSpacing: "-0.02em",
-            }}
+        <div className="contact-bento-grid">
+          {/* Spotlight CTA */}
+          <div
+            className="contact-spotlight glass-card animate-in delay-1"
           >
-            Ready to build something amazing?
-          </h3>
-          <p
-            style={{
-              fontSize: "0.9rem",
-              color: "var(--text-muted)",
-              maxWidth: "420px",
-              margin: "0 auto 24px",
-              lineHeight: "1.7",
-            }}
-          >
-            Whether it&apos;s a web platform, Android app, or data-driven solution — let&apos;s
-            collaborate and bring your idea to life.
-          </p>
-          <a
-            id="contact-email-cta"
-            href="mailto:mihmahmud1002@gmail.com"
-            className="btn-primary"
-            style={{ display: "inline-flex" }}
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-            Send me an email
-          </a>
-        </div>
-
-        {/* Contact cards grid */}
-        <div className="contact-grid animate-in delay-2">
-          {contactItems.map((item) => (
-            <a
-              key={item.id}
-              id={item.id}
-              href={item.href}
-              target={item.href.startsWith("http") ? "_blank" : undefined}
-              rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="contact-card"
-              aria-label={`${item.label}: ${item.value}`}
-            >
-              <div className="contact-icon" style={{ background: item.bg }}>
-                <span aria-hidden="true">{item.icon}</span>
-              </div>
-              <div>
-                <p className="contact-label">{item.label}</p>
-                <p className="contact-value">{item.value}</p>
-              </div>
-              <svg
-                className="contact-card-arrow"
-                style={{ marginLeft: "auto", color: "var(--text-muted)", flexShrink: 0 }}
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
+            <div className="contact-spotlight-glow" aria-hidden="true"></div>
+            <div className="floating-paper-plane" aria-hidden="true" style={{ marginBottom: "20px", position: "relative", zIndex: 2 }}>
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="url(#gradient-plane)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <defs>
+                  <linearGradient id="gradient-plane" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#4f8ef7" />
+                    <stop offset="100%" stopColor="#a78bfa" />
+                  </linearGradient>
+                </defs>
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
               </svg>
+            </div>
+            <h3 className="spotlight-title">
+              Ready to build something amazing?
+            </h3>
+            <p className="spotlight-desc">
+              Whether it&apos;s a web platform, Android app, or data-driven solution — let&apos;s
+              collaborate and bring your idea to life.
+            </p>
+            <a
+              id="contact-email-cta"
+              href="mailto:mihmahmud1002@gmail.com"
+              className="btn-primary"
+              style={{ display: "inline-flex", position: "relative", zIndex: 2 }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              Send me an email
             </a>
-          ))}
+          </div>
+
+          {/* Contact cards grid */}
+          <div className="contact-grid animate-in delay-2">
+            {contactItems.map((item) => (
+              <a
+                key={item.id}
+                id={item.id}
+                href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="contact-card"
+                aria-label={`${item.label}: ${item.value}`}
+              >
+                <div className="contact-icon" style={{ background: item.bg }}>
+                  <span aria-hidden="true">{item.icon}</span>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <p className="contact-label">{item.label}</p>
+                  <p className="contact-value">{item.value}</p>
+                </div>
+                <svg
+                  className="contact-card-arrow"
+                  style={{ color: "var(--text-muted)", flexShrink: 0 }}
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
