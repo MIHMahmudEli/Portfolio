@@ -48,6 +48,7 @@ const repositories = [
     stargazers_count: 1,
     forks_count: 0,
     localIcon: "/icons/studyhub.svg",
+    localPreview: "/previews/StudyHub.png",
   },
   {
     name: "RoutinePro",
@@ -72,6 +73,7 @@ const repositories = [
     stargazers_count: 0,
     forks_count: 0,
     localIcon: "/icons/TrueNetMeter.svg",
+    localPreview: "/previews/TrueNetMeter.png",
   },
   {
     name: "GitAnalytics",
@@ -168,6 +170,32 @@ export default function Projects() {
                       className={`project-card animate-in delay-${Math.min(i % 5 + 1, 5)}`}
                       aria-label={`Project: ${repo.name}`}
                     >
+                      {repo.localPreview ? (
+                        <div className="project-preview-window">
+                          <img 
+                            src={repo.localPreview} 
+                            alt={`${repo.name} preview`}
+                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                          />
+                          <div className="preview-overlay" />
+                        </div>
+                      ) : repo.homepage ? (
+                        <div className="project-preview-window">
+                          <div className="iframe-scaler">
+                            <iframe 
+                              src={repo.homepage} 
+                              title={`${repo.name} live preview`}
+                              loading="lazy"
+                              scrolling="no"
+                              sandbox="allow-scripts allow-same-origin"
+                              tabIndex={-1}
+                              aria-hidden="true"
+                            />
+                          </div>
+                          <div className="preview-overlay" />
+                        </div>
+                      ) : null}
+                      
                       <div className="project-card-top">
                         <div className="project-icon-wrapper">
                           {repo.localIcon ? (
