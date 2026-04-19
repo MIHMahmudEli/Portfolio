@@ -51,6 +51,18 @@ const repositories = [
     localPreview: "/previews/StudyHub.png",
   },
   {
+    name: "StudyhubBDBot",
+    category: "web",
+    description:
+      "A sophisticated Telegram bot integrated with the StudyHub ecosystem. Automates resource verification, notification delivery, and interactive student engagement.",
+    html_url: "https://github.com/MIHMahmudEli/StudyhubBDBot",
+    homepage: "https://t.me/StudyhubBDBot",
+    language: "Python",
+    stargazers_count: 0,
+    forks_count: 0,
+    localIcon: "/icons/StudyhubBDBot.svg",
+  },
+  {
     name: "RoutinePro",
     category: "web",
     description:
