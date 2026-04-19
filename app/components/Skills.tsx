@@ -37,31 +37,43 @@ export default function Skills() {
 
         {/* Skills grid */}
         <div className="skills-grid animate-in delay-1">
-          {skills.map((s) => (
-            <div className="skill-pill" key={s.name} title={s.desc}>
-              <span style={{ fontSize: "1.2rem" }} aria-hidden="true">{s.icon}</span>
-              <span className="skill-name">{s.name}</span>
+          {skills.map((s, i) => (
+            <div className={`skill-card delay-${Math.min(i % 5 + 1, 5)}`} key={s.name}>
+              <div className="skill-icon-layer">
+                 <span aria-hidden="true">{s.icon}</span>
+              </div>
+              <div className="skill-content-layer">
+                <span className="skill-icon" aria-hidden="true">{s.icon}</span>
+                <div className="skill-text">
+                  <h4 className="skill-name">{s.name}</h4>
+                  <p className="skill-desc">{s.desc}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
 
         {/* Language bar chart */}
         <div className="lang-chart animate-in delay-2" aria-label="Programming language distribution">
-          <p style={{ fontSize: "0.85rem", fontWeight: 700, color: "var(--text-secondary)", marginBottom: "20px", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-            Language Distribution
+          <p className="lang-chart-title">
+            Language Distribution Core <span style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginLeft: "8px", textTransform: "none", letterSpacing: "normal" }}>(Based on GitHub Repositories)</span>
           </p>
-          {languages.map((lang) => (
-            <div className="lang-bar-row" key={lang.name}>
-              <div className="lang-bar-label">{lang.name}</div>
-              <div className="lang-bar-track" role="progressbar" aria-valuenow={parseFloat(lang.percentage)} aria-valuemin={0} aria-valuemax={100} aria-label={`${lang.name}: ${lang.percentage}%`}>
-                <div
-                  className="lang-bar-fill"
-                  style={{ width: `${lang.percentage}%`, background: lang.color }}
-                />
+          <div className="lang-grid">
+            {languages.map((lang, idx) => (
+              <div className="lang-item" key={lang.name} style={{ animationDelay: `${idx * 0.1}s` }}>
+                <div className="lang-header">
+                  <span className="lang-name">{lang.name}</span>
+                  <span className="lang-pct">{lang.percentage}%</span>
+                </div>
+                <div className="lang-bar-track" role="progressbar" aria-valuenow={parseFloat(lang.percentage)} aria-valuemin={0} aria-valuemax={100}>
+                  <div
+                    className="lang-bar-fill"
+                    style={{ width: `${lang.percentage}%`, background: lang.color }}
+                  />
+                </div>
               </div>
-              <div className="lang-bar-pct">{lang.percentage}%</div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
